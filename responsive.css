@@ -1,0 +1,25 @@
+/* @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .image-placeholder {
+        order: -1; /
+        margin-bottom: 20px;
+    }
+    .content {
+        max-width: 100%;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .content {
+        max-width: 40%; 
+    }
+    .image-placeholder {
+        width: 400px;
+        height: 400px;
+    }
+} */
