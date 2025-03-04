@@ -7,6 +7,7 @@
 main {
     margin: 0 auto;
     position: relative;
+    display: none;
 }
 
 #question {
@@ -33,6 +34,36 @@ h1, button{
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.168) !important;
+}
+
+.choice .buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 200px auto;
+}
+
+#a {
+ background-color: aquamarine;
+}
+#b {
+ background-color: lightcoral;
+}
+#c {
+ background-color: lightgoldenrodyellow;
+}
+#d {
+ background-color: lightblue;
 }
 
 @media only screen and (min-width: 810px) {

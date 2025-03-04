@@ -6,12 +6,21 @@
     <title>Capyhoot!</title>
     <link rel="stylesheet" href="game.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="index.js" type="text/JSX" defer></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <h1>[Question]</h1>
+    <section class="choice" id="game-mode-choice">
+        <h2>Capyhoot Prototype!</h2>
+        <div class="buttons">
+            <button id="hos1">HOS.1 Game</button>
+            <button id="hos2">HOS.2 Game</button>
+            <button id="nge">NGE Game</button>
+        </div>
+    </section>
+    <main id="main-game">
+        <h1 id="question">[Question]</h1>
         <section id="question">
             <img src="https://placehold.co/500x700" alt="">
         </section>
@@ -22,5 +31,274 @@
             <button id="d">D</button>
         </section>
     </main>
+    <script>
+    const btnA = document.getElementById('a');
+    const btnB = document.getElementById('b');
+    const btnC = document.getElementById('c');
+    const btnD = document.getElementById('d');
+
+    const questionTxt = document.getElementById('question'); // Ensure this exists in your HTML
+
+    const game = document.getElementById('main-game');
+    const gameModeChoice = document.getElementById('game-mode-choice');
+
+    const hos1 = document.getElementById('hos1');
+    const hos2 = document.getElementById('hos2');
+    const nge = document.getElementById('nge');
+
+    let chosenGamemode;
+    let currentQuestion;
+    let currentAnswers;
+
+    function selectGameMode(modeName) {
+        chosenGamemode = modeName.toUpperCase(); // Match the keys in the object
+        game.style.display = 'block';
+        gameModeChoice.style.display = 'none';
+        loadQuestion();
+    }
+
+    // Event listeners for game mode selection
+    hos1.addEventListener('click', () => selectGameMode('HOS'));
+    hos2.addEventListener('click', () => selectGameMode('HOSB'));
+    nge.addEventListener('click', () => selectGameMode('NGE'));
+
+    // Event listeners for answer buttons
+    [btnA, btnB, btnC, btnD].forEach((btn, index) => {
+        btn.addEventListener('click', () => checkAnswer(index));
+    });
+
+    function loadQuestion() {
+        console.log(chosenGamemode, questions);
+        const questionKeys = Object.keys(questions[chosenGamemode]);
+        
+        const randomIndex = Math.floor(Math.random() * questionKeys.length);
+        currentQuestion = questionKeys[randomIndex];
+        currentAnswers = [...questions[chosenGamemode][currentQuestion]]; // Copy the answers array
+
+        const correctAnswer = currentAnswers[0]; // Original correct answer
+        shuffleArray(currentAnswers); // Shuffle answers
+
+        // Set question text
+        questionTxt.innerHTML = currentQuestion;
+
+        // Set answer button texts
+        btnA.innerHTML = `A. ${currentAnswers[0]}`;
+        btnB.innerHTML = `B. ${currentAnswers[1]}`;
+        btnC.innerHTML = `C. ${currentAnswers[2]}`;
+        btnD.innerHTML = `D. ${currentAnswers[3]}`;
+
+        correctAnswerIndex = currentAnswers.indexOf(correctAnswer); // Find new position of correct answer
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+    }
+
+    // Modify checkAnswer function to check against the new shuffled index
+    function checkAnswer(selectedIndex) {
+        if (selectedIndex === correctAnswerIndex) {
+            alert("Correct!");
+        } else {
+            alert("Wrong answer. Try again!");
+        }
+        loadQuestion(); // Load the next question
+    }
+
+
+
+
+    const questions = {
+        HOS: {
+            "What is an effective way to help set a goal?": [
+                "action plan",
+                "wishful thinking",
+                "ignoring deadlines",
+                "procrastination"
+            ],
+            "You submit your homework late more than 25% of the time. What level are you?": [
+                "level 2",
+                "level 5",
+                "level 8",
+                "level 10"
+            ],
+            "Does having an organizational system make you rank level 8 or above?": [
+                "yes",
+                "no",
+                "only if you submit everything early",
+                "depends on the teacher"
+            ],
+            "What can help you stay focused and on task?": [
+                "to adapt to different learning environments + have multiple strategies to keep my focus",
+                "listening to loud music",
+                "multitasking excessively",
+                "working in complete isolation"
+            ],
+            "What is a way you can use the continua?": [
+                "to make improvements to your work",
+                "to compare yourself with others",
+                "to track attendance",
+                "to avoid feedback"
+            ],
+            "What is an effective way to improve your assignments before the turn-in date?": [
+                "integrate constructive feedback from my peers or teachers into my work",
+                "rewrite everything last minute",
+                "ignore feedback",
+                "only rely on spell check"
+            ],
+            "After setting up a goal, you proceed to request feedback on it and your action plan from members of your personal and professional network. What level are you?": [
+                "level 12",
+                "level 6",
+                "level 8",
+                "level 4"
+            ],
+            "Is adapting to different learning environments a beginner level ability?": [
+                "no",
+                "yes",
+                "only for some subjects",
+                "depends on the teacher"
+            ],
+            "What are SMART goals?": [
+                "idk",
+                "Simple Measurable Achievable Realistic Time-bound",
+                "Specific Medium Accurate Realistic Tangible",
+                "Strategic Meaningful Attainable Relevant Trackable"
+            ],
+            "What is HOS.1 \"Manage my work and set goals\" core idea?": [
+                "to demonstrate effective personal work habits to help me achieve my academic and personal goals",
+                "to complete assignments as fast as possible",
+                "to work independently without any help",
+                "to only focus on short-term success"
+            ]
+        },
+        NGE: {
+            "Is respecting the perspectives of other members of your team without interrupting a minimum requirement?": [
+                "yes",
+                "no",
+                "only in formal settings",
+                "depends on the team leader"
+            ],
+            "What is NGE.3 \"Collaborate effectively\" core idea?": [
+                "To work effectively with diverse teams to create high quality products",
+                "To always agree with the majority",
+                "To focus on individual work only",
+                "To prioritize personal success over teamwork"
+            ],
+            "With support, you are able to take responsibility for your actions. What level are you at Managing and resolving conflicts?": [
+                "2",
+                "4",
+                "6",
+                "8"
+            ],
+            "What can help you complete your part of the work?": [
+                "Prioritizing team meetings as well as team deadlines",
+                "Ignoring team discussions",
+                "Focusing only on individual contributions",
+                "Waiting for others to complete the work"
+            ],
+            "Does brainstorming ideas to manage and resolve a conflict as well as finding a solution that benefits all involved put you at level 8 or higher?": [
+                "yes",
+                "no",
+                "only if the team leader agrees",
+                "only in large groups"
+            ],
+            "What is a method to better reflect on your product and process?": [
+                "reaching out to a mentor to provide support as you work on varied areas for growth",
+                "ignoring feedback",
+                "completing work last minute",
+                "only reflecting on strengths"
+            ],
+            "What is a highly valued action in interacting and participating effectively with others?": [
+                "Recognizing the talents and strengths of each team member and supporting them in their roles and recommending changes if needed",
+                "Taking over all the tasks",
+                "Avoiding teamwork",
+                "Only communicating through emails"
+            ],
+            "What is a way you can move from level 4 to level 6 in \"completing your part of the work\"?": [
+                "Prioritizing all team meetings, but when not able to attend, following up after to see what you’ve missed",
+                "Only attending important meetings",
+                "Completing work independently",
+                "Ignoring team discussions"
+            ],
+            "Is leading a team a beginner/intermediate skill?": [
+                "no",
+                "yes",
+                "depends on experience",
+                "only if in a small team"
+            ],
+            "What is a key thing to reflect on after completing your product?": [
+                "your personal strengths as well as ways to improve for the future",
+                "the mistakes of others",
+                "only positive aspects",
+                "avoiding feedback"
+            ]
+        },
+        HOSB: {
+            "What is NGE.3 \"Build Networks\" core idea?": [
+                "to build relationships with diverse individuals and expand your network of people who can help and support you",
+                "to only connect with people in your field",
+                "to gain social media followers",
+                "to only network when job hunting"
+            ],
+            "What is a way you can move from level 4 to level 6 in \"building positive relationships\"?": [
+                "by participating in experiences that help you meet new people with shared interests",
+                "by only networking online",
+                "by avoiding new social interactions",
+                "by sticking to the same group of people"
+            ],
+            "Is thinking about how what you write and post make others feel a lower level requirement?": [
+                "si",
+                "no",
+                "only if someone complains",
+                "depends on the platform"
+            ],
+            "What is an effective way to build positive relationships?": [
+                "create contact cards with your name, phone number and email address as a professional way to share your contact information with new people you would like to add to your network",
+                "only network with people you already know",
+                "avoid sharing contact information",
+                "wait for others to reach out first"
+            ],
+            "You introduce yourself to a new classmate who you haven’t met before, but do not follow through. What level are you?": [
+                "Level 2",
+                "Level 5",
+                "Level 8",
+                "Level 10"
+            ],
+            "What can \"professional photo, details of your educational experience, internships, part-time jobs, and volunteer work, honors/awards and a portfolio\" be included in?": [
+                "professional social network account",
+                "personal diary",
+                "class notes",
+                "resume draft"
+            ],
+            "What can be a good way to meet new people with shared experiences, according to level 6 and 8 of \"Build Positive Relationships\"?": [
+                "participate in different experiences of shared interests",
+                "stay within your comfort zone",
+                "only interact online",
+                "wait for opportunities to come to you"
+            ],
+            "I can clearly articulate what I need help with and why\" is an important quality of which level in seek support and resources?": [
+                "level 10",
+                "level 5",
+                "level 7",
+                "level 12"
+            ],
+            "I can demonstrate my understanding that everything that I do online leaves a footprint that cannot be undone\" is an important quality of which level in create and maintain a positive digital/online footprint?": [
+                "level 6",
+                "level 3",
+                "level 8",
+                "level 10"
+            ],
+            "What is a good way to look for information about yourself to see what is online about you, according to the last levels of \"Create and maintain a positive digital/online footprint\"?": [
+                "regularly use search engines such as google, bing, etc.",
+                "ignore what’s online",
+                "only check social media",
+                "ask friends what they see about you online"
+            ]
+        }
+
+    }
+    </script>
 </body>
 </html>
