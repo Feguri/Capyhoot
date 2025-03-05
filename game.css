@@ -8,10 +8,21 @@ main {
     margin: 0 auto;
     position: relative;
     display: none;
+    font-family: 'metropolis-regular';
+}
+
+@font-face {
+    font-family: metropolis-regular;
+    src: url("metropolis/fonts/otf/Metropolis-Regular.otf") format("opentype");
+}
+
+.swal2-popup {
+    font-family: 'metropolis-regular';
 }
 
 #question {
     margin: 0 auto;
+    padding-top: 1%;
     max-width: 300px;
 }
 
@@ -31,7 +42,7 @@ main {
 
 h1, button{
     text-align: center;
-    font-family: "Poppins", sans-serif;
+    font-family: 'metropolis-regular';
     font-weight: 600;
     font-style: normal;
 }
@@ -39,6 +50,12 @@ h1, button{
 h2 {
     text-align: center;
     margin-top: 50px;
+}
+
+button {
+    border: none;
+    font-size: 90%;
+    padding: 2%;
 }
 
 button:hover {
@@ -68,6 +85,11 @@ button:hover {
 
 @media only screen and (min-width: 810px) {
 
+    button {
+        border: none;
+        font-size: 110%;
+        padding: 2%;
+    }
 
 }
 
