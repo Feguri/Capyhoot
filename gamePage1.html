@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="game.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="index.js" type="text/JSX" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
@@ -104,9 +103,13 @@
     // Modify checkAnswer function to check against the new shuffled index
     function checkAnswer(selectedIndex) {
         if (selectedIndex === correctAnswerIndex) {
-            Swal.fire({icon:"success", title:"Wow", text:"Correct!"});
+            Swal.fire({imageUrl: 'img/Capi_Happy.png', // Replace with the URL of your image
+            imageWidth: 330,
+            imageHeight: 330, title:"Wow!", text:"You're correct."});
         } else {
-            Swal.fire({icon:"error", title:"Oops...", text:"Wrong answer. Try again!"});
+            Swal.fire({imageUrl: 'img/Capi_Sad.png', // Replace with the URL of your image
+            imageWidth: 300,
+            imageHeight: 300, title:"Oops...", text:"Wrong answer. Try again!"});
         }
         loadQuestion(); // Load the next question
     }
@@ -152,7 +155,7 @@
                 "ignore feedback",
                 "only rely on spell check"
             ],
-            "After setting up a goal, you proceed to request feedback on it and your action plan from members of your personal and professional network. What level are you?": [
+            "After setting a goal, you request feedback on it and your action plan from your social network. What level are you?": [
                 "level 12",
                 "level 6",
                 "level 8",
@@ -202,7 +205,7 @@
                 "Focusing only on individual contributions",
                 "Waiting for others to complete the work"
             ],
-            "Does brainstorming ideas to manage and resolve a conflict as well as finding a solution that benefits all involved put you at level 8 or higher?": [
+            "Does brainstorming solutions to resolve a conflict and benefit all involved put you at level 8 or higher?": [
                 "yes",
                 "no",
                 "only if the team leader agrees",
@@ -270,7 +273,7 @@
                 "Level 8",
                 "Level 10"
             ],
-            "What can \"professional photo, details of your educational experience, internships, part-time jobs, and volunteer work, honors/awards and a portfolio\" be included in?": [
+            "What can a professional photo, education, internships, part-time jobs, volunteer work, honors/awards, and portfolio be included in?": [
                 "professional social network account",
                 "personal diary",
                 "class notes",
@@ -288,13 +291,13 @@
                 "level 7",
                 "level 12"
             ],
-            "I can demonstrate my understanding that everything that I do online leaves a footprint that cannot be undone\" is an important quality of which level in create and maintain a positive digital/online footprint?": [
+            "Understanding that everything you do online leaves a permanent footprint is an important quality of which level in maintaining a positive digital footprint?": [
                 "level 6",
                 "level 3",
                 "level 8",
                 "level 10"
             ],
-            "What is a good way to look for information about yourself to see what is online about you, according to the last levels of \"Create and maintain a positive digital/online footprint\"?": [
+            "What's a good way to search for information about yourself online, according to the last levels of Create and maintain a positive digital footprint?": [
                 "regularly use search engines such as google, bing, etc.",
                 "ignore what’s online",
                 "only check social media",
