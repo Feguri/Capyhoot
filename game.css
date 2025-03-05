@@ -13,11 +13,41 @@ main {
 
 @font-face {
     font-family: metropolis-regular;
-    src: url("metropolis/fonts/otf/Metropolis-Regular.otf") format("opentype");
+    src: url("fonts/Metropolis-Regular.otf") format("opentype");
 }
 
 .swal2-popup {
     font-family: 'metropolis-regular';
+}
+
+h2 {
+    font-family: 'metropolis-regular';
+    padding-top: 5%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background: #333;
+    color: white;
+    font-family: 'metropolis-regular';
+}
+
+header img {
+    width: 300px;
+
+}
+.nav {
+    display: flex;
+    gap: 20px;
+}
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 #question {
@@ -60,7 +90,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.168) !important;
+    /* background-color: rgba(255, 255, 255, 0.168) !important; */
 }
 
 .choice .buttons {
@@ -102,5 +132,89 @@ button:hover {
 
 
 }
+
+.choice {
+    text-align: center;
+    margin: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between boxes */
+}
+
+.button-box {
+    text-align: center;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.button-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    padding: 15px 20px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #518a58;
+}
+
+
+.description {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #666;
+    font-family: 'metropolis-regular';
+}
+
+
+@media (max-width: 600px) {
+    
+    .buttons {
+        gap: 15px;
+    }
+
+    .button-box {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    button {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 599px) {
+   
+    header img{      
+        content:url("images/capyhoot-logo.png");
+        width: 100px;
+    } 
+
+}
+
 
 

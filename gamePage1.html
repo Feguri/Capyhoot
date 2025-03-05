@@ -5,21 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capyhoot!</title>
     <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="index.js" type="text/JSX" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+
+<header>
+    <img src="images/capyhoot-logo-front-page.png" alt="logo" draggable="false">
+    <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#rules">Rules</a>
+        <a href="#topic">Topic</a>
+    </nav>
+</header>
+
 <body>
+
     <section class="choice" id="game-mode-choice">
-        <h2>Capyhoot Prototype!</h2>
+        <h2>Choose Your Topic!</h2>
         <div class="buttons">
-            <button id="hos1">HOS.1 Game</button>
-            <button id="hos2">HOS.2 Game</button>
-            <button id="nge">NGE Game</button>
+            <div class="button-box">
+                <button id="hos1">HOS.1</button>
+                <p class="description">Description of HOS.1</p>
+            </div>
+            <div class="button-box">
+                <button id="hos2">HOS.2</button>
+                <p class="description">Description of HOS.2</p>
+            </div>
+            <div class="button-box">
+                <button id="nge">NGE.3</button>
+                <p class="description">Description of NGE.3</p>
+            </div>
         </div>
     </section>
+
     <main id="main-game">
         <h1 id="question">[Question]</h1>
         <section id="question">
